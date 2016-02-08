@@ -1,0 +1,48 @@
+<!-- 
+Author: John McSwain
+Date: 5/17/15
+Purpose: Under Armour Technical Assessment
+App Name: mainApp
+Controller Name: MainController
+-->
+<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head>
+      <meta charset="UTF-8">
+        <title>Under Armour Technical Assessment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet" type="text/css">
+        <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body ng-controller="MainController">
+      <nav>
+          <input type="text" ng-model="searchMember" ng-change="updatePages(memberListResult)">
+          <select ng-options="item.value as item.name for item in maxItemArray" ng-model="resultLimit" ng-selected="updatePages(memberListResult)"></select>
+          <select ng-options="item.abbreviation as item.name for item in stateArray" ng-model="stateFilter" ng-selected="updatePages(memberListResult)"></select>
+      </nav>
+      <section>
+          <table>
+              <tr>
+                  <th>Member Name</th>
+             </tr>
+              <tr ng-repeat="member in (memberListResult = (memberList | orderBy:'first_name' | filter:{name:searchMember} | filter:{state:stateFilter} | limitTo: offset - memberList.length))"><!--| limitTo:resultLimit)-->
+                  <td><a href="" ng-click="custom=!custom">{{member.first_name}} {{member.last_name}}</a>
+                      <p ng-hide="custom" class="show-hide">
+                          {{member.address}}<br>
+                          {{member.email}}<br>
+                          {{member.join_date}}<br>
+                          {{member.phone}}<br>
+                          {{member.city}}, {{member.state}} {{member.zip}}<br>
+                      </p>
+              </tr>
+          </table>
+      </section>
+        <!--<footer>
+            <button ng-disabled="currentPage >= Object.keys(memberResults).length/resultLimit - 1" ng-click="goBack()">Previous</button>{{currentPage}}/{{numberOfPages}}<button ng-click="goForward()">Next</button>
+        </footer>-->
+      <script src="js/angular.min.js"></script>
+      <script src="js/main.js"></script>
+    
+    </body>
+</html>
