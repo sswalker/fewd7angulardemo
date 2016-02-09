@@ -1,0 +1,72 @@
+/*
+Author: John McSwain
+Date: 5/17/15
+Purpose: Under Armour Technical Assessment
+App Name: mainApp
+*/
+
+/* TAGS */
+body{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: #555;
+}
+
+section,div{
+    float:left;
+    clear:both;
+    width:35%;
+}
+
+nav{
+    float:left;
+    clear:both;
+    width:40%;
+}
+
+th{
+    font-weight: bolder;
+}
+
+
+
+table,td{
+    border:1px solid #eee;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+td{
+    background-color: #eee;   
+}
+
+
+a{
+    text-decoration: none;   
+    font-weight: 800;
+    color:red;
+}
+
+
+
+a:hover, a:target{
+  color: #000;
+ 
+}
+/* CLASSES */
+.pageDiv{
+    width:12%;
+    height:8%;
+    text-align: center;
+    font-size:1.3em;
+    font-size: bold;
+}
+
+.red{
+    background-color: red;
+}
+
+
+/* IDs */
